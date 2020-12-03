@@ -1,5 +1,4 @@
 <?php 
-    session_start();
     include('middleware/if_authenticated.php');
     $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
  ?>
