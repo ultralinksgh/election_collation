@@ -35,6 +35,15 @@
                             <li><a class="dropdown-item" href="parties.php">Load Parties</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle align-items-center font-weight-bold text-warning" href="#" id="navbarDropdownMenuLink"
+                            role="button" data-toggle="dropdown" aria-expanded="false">Constituency Ballots
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="ballot.php">Add Ballot</a></li>
+                            <li><a class="dropdown-item" href="view_ballot.php">Load Ballots</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold text-warning" href="#">Results</a>
                     </li>

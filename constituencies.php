@@ -24,7 +24,7 @@ require "script/ultrafunctions.php";
         while ($rec = mysqli_fetch_assoc($query)) {
             $i++;
            ?>
-                <tr>
+                <tr class="records">
                     <td><?php echo $i;?></td>
                     <td><?php echo $rec["district"];?></td>
                     <td><?php echo $rec["constituency"];?></td>

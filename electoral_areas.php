@@ -23,7 +23,7 @@ require "script/ultrafunctions.php";
         while ($rec = mysqli_fetch_assoc($query)) {
             $i++;
            ?>
-                <tr>
+                <tr class="records">
                     <td><?php echo $i;?></td>
                     <td><?php echo $rec["constituency"];?></td>
                     <td><?php echo $rec["name"];?></td>
@@ -122,6 +122,9 @@ $('#tbllist tbody').on('click', '.btn_delete', function(e){
             success: function(resp){
                 if(resp=='success'){
                     alert('Deleted successful');
+                    $this.parents('.records').fadeOut('slow', function(){
+                        $this.parents('.records').remove();
+                    });
                 }
                 else{
                     alert(resp);

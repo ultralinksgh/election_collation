@@ -42,7 +42,7 @@
                         <span class="text-danger small" role="alert"></span>
                     </div>
                     <div class="mt-3">
-                        <button type="submit" class="btn btn-md btn-primary">Log In</button>
+                        <button type="submit" class="btn btn-md btn-primary btn_login">Log In</button>
                     </div>
                 </form>
             </div>
@@ -80,12 +80,12 @@
                         $("#myErrorMessage").html('<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert">×</button>' +
                         '<div class="alert-icon contrast-alert"><i class="fa fa-times"></i></div><div class="alert-message"><span><strong>Opps:</strong>'+resp+'</span></div></div>')
                         $("#formSignIn")[0].reset();
-                        $('.btn_login').html('<i class="fa fa-sign-in"></i> Sign In').attr('disabled', false);
+                        $('.btn_login').html('Log In').attr('disabled', false);
                     }
                 },
                 error: function(resp){
                     alert('Something went wrong');
-                    $('.btn_login').html('<i class="fa fa-sign-in"></i> Sign In').attr('disabled', false);
+                    $('.btn_login').html('Log In').attr('disabled', false);
                 }
             });
         }
