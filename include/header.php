@@ -14,7 +14,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand font-weight-bold text-danger" href="#">NDC-ECS</a>
+            <a class="navbar-brand font-weight-bold text-danger" href="#">NDC-ERCS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
@@ -53,11 +53,11 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle align-items-center" href="#" id="navbarDropdownMenuLink"
                             role="button" data-toggle="dropdown" aria-expanded="false">
-                            <img src="img/logo.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+                            <img src="img/ndcjpg.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">My profile</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <!-- <li><a class="dropdown-item" href="#">My profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li> -->
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
                     </li>
