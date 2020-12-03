@@ -27,7 +27,7 @@ require "script/ultrafunctions.php";
                     <td><?php echo $i;?></td>
                     <td><?php echo $rec["constituency"];?></td>
                     <td><?php echo $rec["name"];?></td>
-                    <td><a href="#" class="font-weight-bold text-danger">Drop</a></td>
+                    <td><a href="#" data-name="<?php echo $rec['name']; ?>" data-id="<?php echo $rec['id']; ?>" class="font-weight-bold text-danger btn_delete">Drop</a></td>
                 </tr>
                 <?php
         }        
@@ -96,7 +96,7 @@ $("#frmadd").on("submit", function(e) {
     e.preventDefault();
     $.ajax({
         type: "post",
-        url: "electoral_areas_save.php",
+        url: "script/electoral_areas_save.php",
         data: $(this).serialize(),
         success: function(response) {
             if (response == "success") {
@@ -107,5 +107,31 @@ $("#frmadd").on("submit", function(e) {
             }
         }
     });
+});
+
+//delete
+$('#tbllist tbody').on('click', '.btn_delete', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    var $this = $(this);
+    if(confirm($this.data('name')+'\nSure to delete?')){
+        $.ajax({
+            url: 'script/electoral_areas_delete.php',
+            type: 'POST',
+            data: {id:$this.data('id')},
+            success: function(resp){
+                if(resp=='success'){
+                    alert('Deleted successful');
+                }
+                else{
+                    alert(resp);
+                }
+            },
+            error: function(resp){
+                alert('Something went wrong');
+            }
+        });
+    }
+    return false;
 });
 </script>

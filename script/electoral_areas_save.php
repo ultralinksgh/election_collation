@@ -1,5 +1,5 @@
 <?php 
-require "script/ultrafunctions.php";
+require "ultrafunctions.php";
 
 $constituency = validate($_POST["constituency"]);
 $electoral_area = validate($_POST["electarea"]);

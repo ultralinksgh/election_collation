@@ -1,5 +1,5 @@
 <?php 
-require "script/ultrafunctions.php";
+require "ultrafunctions.php";
 $district = validate($_POST["district"]);
 $constituency = validate($_POST["constituency"]);
 $district = strtoupper($district);
