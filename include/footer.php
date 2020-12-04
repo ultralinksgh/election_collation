@@ -4,5 +4,7 @@
 <script src="js/mdb.min.js"></script>
 <script src="js/chosen.jquery.js"></script>
 <script src="DataTables/datatables.min.js"></script>
+<!-- Chart js -->
+<script src="js/Chart.min.js"></script>
 
 </html>

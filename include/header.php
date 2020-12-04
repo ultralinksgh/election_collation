@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="css/chosen.css">
     <link rel="stylesheet" href="DataTables/datatables.min.css">
     <title>NDC-ECS</title>
+    <style>
+        .chart-container{
+            position:relative;
+            height:500px;
+        }
+    </style>
 </head>
 
 <body>
