@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 04, 2020 at 04:14 PM
+-- Generation Time: Dec 04, 2020 at 09:03 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -158,6 +158,8 @@ CREATE TABLE `results` (
   `party_name` varchar(50) NOT NULL,
   `presidential_votes` int(11) NOT NULL DEFAULT 0,
   `parliament_votes` int(11) NOT NULL DEFAULT 0,
+  `presidential_rejected_ballot` int(11) NOT NULL DEFAULT 0,
+  `parliamentary_rejected_ballot` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -165,12 +167,12 @@ CREATE TABLE `results` (
 -- Dumping data for table `results`
 --
 
-INSERT INTO `results` (`id`, `polling_stations_id`, `party_name`, `presidential_votes`, `parliament_votes`, `created_at`) VALUES
-(1, 1, 'NPP', 6, 2, '2020-12-04 15:00:01'),
-(2, 1, 'NDC', 5, 1, '2020-12-04 15:00:01'),
-(3, 1, 'GUM', 5, 1, '2020-12-04 15:00:01'),
-(4, 1, 'CPP', 5, 1, '2020-12-04 15:00:01'),
-(5, 1, 'GFP', 5, 1, '2020-12-04 15:00:01');
+INSERT INTO `results` (`id`, `polling_stations_id`, `party_name`, `presidential_votes`, `parliament_votes`, `presidential_rejected_ballot`, `parliamentary_rejected_ballot`, `created_at`) VALUES
+(1, 1, 'NPP', 6, 3, 2, 4, '2020-12-04 15:00:01'),
+(2, 1, 'NDC', 5, 2, 2, 4, '2020-12-04 15:00:01'),
+(3, 1, 'GUM', 5, 2, 2, 4, '2020-12-04 15:00:01'),
+(4, 1, 'CPP', 5, 2, 2, 4, '2020-12-04 15:00:01'),
+(5, 1, 'GFP', 5, 2, 2, 4, '2020-12-04 15:00:01');
 
 -- --------------------------------------------------------
 
