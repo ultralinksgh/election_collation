@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    <div class="row mt-5">
+    <div class="row mt-3">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
             <div class="text-center">
                 <img src="img/ndc.png" width="120" height="120" alt="">
                 <!-- <h4 class="font-weight-bold text-success">National Democratic Congress</h4> -->
                 <h5 class="font-weight-bold text-danger mt-3">Election Results Collation System</h5>
-                <h5 class="font-weight-bold mt-3">SYSTEM LOGIN</h5>
+                <!-- <h5 class="font-weight-bold mt-3">SYSTEM LOGIN</h5> -->
             </div>
             <div class="card card-body mt-3">
                 <div id="myErrorMessage"></div>  

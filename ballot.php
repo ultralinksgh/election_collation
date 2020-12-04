@@ -4,7 +4,7 @@ require "include/header.php";
 require "script/ultrafunctions.php"; 
 ?>
 <h3 class="mt-4">Constituency Ballots</h3>
-<span>Use this module to create ballot sheet for elections at each constituency</span>
+<small>Use this module to create ballot sheet for elections at each constituency</small>
 <hr>
 <div class="card card-body mt-4">
     <div class="row">

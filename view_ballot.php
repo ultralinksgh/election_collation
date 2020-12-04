@@ -3,32 +3,39 @@ require "include/header.php";
 require "script/ultrafunctions.php"; 
 ?>
 <h3 class="mt-4">View Ballots</h3>
+<small>Use this module to view all ballots created for each constituency</small>
 <hr>
 <div class="card card-body mt-4">
-    <div class="col-sm-6 offset-sm-3">
+    <div class="col-sm-12">
         <form id="formFilter" autocomplete="off" class="form-inline">
-            <div class="form-group mb-4 validate">
-                <label for="" class="font-weight-bold">Constituency</label>
-                <select name="constituency" id="constituency" class="form-control">
-                    <option value="">--Select constituency--</option>
-                    <?php 
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group mb-4 validate">
+                        <label for="" class="font-weight-bold">Constituency</label>
+                        <select name="constituency" id="constituency" class="form-control">
+                            <option value="">--Select constituency--</option>
+                            <?php 
                 $query = select_records("constituencies");
                 while ($rec = mysqli_fetch_assoc($query)) { ?>
-                    <option value="<?php echo $rec['id']; ?>"><?php echo $rec['constituency']; ?></option>
-                    <?php } ?>
-                </select>
-                <span class="text-danger small" role="alert"></span>
+                            <option value="<?php echo $rec['id']; ?>"><?php echo $rec['constituency']; ?></option>
+                            <?php } ?>
+                        </select>
+                        <span class="text-danger small" role="alert"></span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group mb-4 validate">
+                        <label for="" class="font-weight-bold">Election Type</label>
+                        <select name="type" id="type" class="form-control">
+                            <option value="">--Select type--</option>
+                            <option value="presidential">Presidential</option>
+                            <option value="parliamentary">Parliamentary</option>
+                        </select>
+                        <span class="text-danger small" role="alert"></span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group mb-4 validate">
-                <label for="" class="font-weight-bold">Election Type</label>
-                <select name="type" id="type" class="form-control">
-                    <option value="">--Select type--</option>
-                    <option value="presidential">Presidential</option>
-                    <option value="parliamentary">Parliamentary</option>
-                </select>
-                <span class="text-danger small" role="alert"></span>
-            </div>
-            <button type="submit" class="btn btn-success mt-3 btn_filter">FILTER</button>
+            <button type="submit" class="btn btn-success btn_filter">FILTER</button>
         </form>
     </div>
     <div class="col-sm-12">
