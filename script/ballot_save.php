@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     }else{
         foreach($parties as $party){
             global $conn;
-            $exec = mysqli_query($conn, "INSERT INTO ballots(party_id,constituency_id,type)VALUES('$party', '$constituency','$type')") or die(mysqli_error($conn));
+            $exec = mysqli_query($conn, "INSERT INTO ballots(party_id,constituency_id,type) VALUES('$party', '$constituency','$type')") or die(mysqli_error($conn));
         }
         if($exec){
             echo 'success';
