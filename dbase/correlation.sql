@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 04, 2020 at 11:15 AM
+-- Generation Time: Dec 04, 2020 at 04:14 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -155,11 +155,22 @@ INSERT INTO `polling_stations` (`id`, `electroal_areas_id`, `code`, `name`, `vot
 CREATE TABLE `results` (
   `id` int(11) NOT NULL,
   `polling_stations_id` int(11) NOT NULL,
-  `party_name` varchar(100) NOT NULL,
-  `presidential_votes` int(11) NOT NULL,
+  `party_name` varchar(50) NOT NULL,
+  `presidential_votes` int(11) NOT NULL DEFAULT 0,
   `parliament_votes` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `results`
+--
+
+INSERT INTO `results` (`id`, `polling_stations_id`, `party_name`, `presidential_votes`, `parliament_votes`, `created_at`) VALUES
+(1, 1, 'NPP', 6, 2, '2020-12-04 15:00:01'),
+(2, 1, 'NDC', 5, 1, '2020-12-04 15:00:01'),
+(3, 1, 'GUM', 5, 1, '2020-12-04 15:00:01'),
+(4, 1, 'CPP', 5, 1, '2020-12-04 15:00:01'),
+(5, 1, 'GFP', 5, 1, '2020-12-04 15:00:01');
 
 -- --------------------------------------------------------
 
@@ -345,7 +356,7 @@ ALTER TABLE `polling_stations`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
