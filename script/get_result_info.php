@@ -25,9 +25,9 @@ $polling_station_code = validate($_POST["polling_station_code"]);
     </div>
     <div class="col-sm-6 mt-3">
         <h4 class="font-weight-bold">Presidential Results</h4>
-        <?php while ($rec = mysqli_fetch_assoc($queries1)) { ?>
-        <div class="col-sm-12 p-1 g-1">
-            <form action="">
+        <form action="">
+            <?php while ($rec = mysqli_fetch_assoc($queries1)) { ?>
+            <div class="col-sm-12 p-1 g-1">
                 <div class="row">
                     <div class="col-sm-2">
                         <?php echo $rec['name']; ?>
@@ -36,16 +36,17 @@ $polling_station_code = validate($_POST["polling_station_code"]);
                         <input type="text" />
                     </div>
                 </div>
-            </form>
-        </div>
-        <?php } ?>
+            </div>
+            <?php } ?>
+            <button class="btn btn-primary offset-3 mt-3">Save Results</button>
+        </form>
     </div>
 
     <div class="col-sm-6 mt-3">
         <h4 class="font-weight-bold">Parliamentary Results</h4>
-        <?php while ($rec = mysqli_fetch_assoc($queries2)) { ?>
-        <div class="col-sm-12 p-1 g-1">
-            <form action="">
+        <form action="">
+            <?php while ($rec = mysqli_fetch_assoc($queries2)) { ?>
+            <div class="col-sm-12 p-1 g-1">
                 <div class="row">
                     <div class="col-sm-2">
                         <?php echo $rec['name']; ?>
@@ -54,9 +55,10 @@ $polling_station_code = validate($_POST["polling_station_code"]);
                         <input type="text" />
                     </div>
                 </div>
-            </form>
-        </div>
-        <?php } ?>
+            </div>
+            <?php } ?>
+            <button class="btn btn-secondary offset-3 mt-3">Save Results</button>
+        </form>
     </div>
     <br>
     <?php } ?>
