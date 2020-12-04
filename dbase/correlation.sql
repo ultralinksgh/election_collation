@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 03, 2020 at 08:53 PM
+-- Generation Time: Dec 04, 2020 at 11:15 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -34,6 +34,22 @@ CREATE TABLE `ballots` (
   `type` varchar(20) NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ballots`
+--
+
+INSERT INTO `ballots` (`id`, `party_id`, `constituency_id`, `type`, `created_at`) VALUES
+(1, 1, 1, 'presidential', '2020-12-03 22:25:26'),
+(2, 2, 1, 'presidential', '2020-12-03 22:25:26'),
+(3, 3, 1, 'presidential', '2020-12-03 22:25:26'),
+(4, 4, 1, 'presidential', '2020-12-03 22:25:26'),
+(5, 5, 1, 'presidential', '2020-12-03 22:25:26'),
+(6, 1, 1, 'parliamentary', '2020-12-03 22:25:47'),
+(7, 2, 1, 'parliamentary', '2020-12-03 22:25:47'),
+(8, 3, 1, 'parliamentary', '2020-12-03 22:25:47'),
+(9, 4, 1, 'parliamentary', '2020-12-03 22:25:47'),
+(10, 5, 1, 'parliamentary', '2020-12-03 22:25:47');
 
 -- --------------------------------------------------------
 
@@ -168,6 +184,22 @@ INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `view_ballots`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_ballots` (
+`id` int(11)
+,`name` varchar(100)
+,`party_id` int(11)
+,`constituency` varchar(255)
+,`constituency_id` int(11)
+,`type` varchar(20)
+,`created_at` timestamp
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `view_electoral_areas`
 -- (See below for the actual view)
 --
@@ -187,12 +219,23 @@ CREATE TABLE `view_electoral_areas` (
 --
 CREATE TABLE `view_polling_stations` (
 `id` int(11)
-,`electroal_areas_id` int(11)
-,`electoral_name` varchar(255)
 ,`code` varchar(50)
 ,`polling_name` varchar(100)
 ,`voters` int(11)
+,`constituency` varchar(255)
+,`constituency_id` int(11)
+,`electoral_name` varchar(255)
+,`created_at` timestamp
 );
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_ballots`
+--
+DROP TABLE IF EXISTS `view_ballots`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_ballots`  AS SELECT `b`.`id` AS `id`, `p`.`name` AS `name`, `b`.`party_id` AS `party_id`, `c`.`constituency` AS `constituency`, `b`.`constituency_id` AS `constituency_id`, `b`.`type` AS `type`, `b`.`created_at` AS `created_at` FROM ((`ballots` `b` join `parties` `p`) join `constituencies` `c`) WHERE `b`.`party_id` = `p`.`id` AND `b`.`constituency_id` = `c`.`id` ;
 
 -- --------------------------------------------------------
 
@@ -210,7 +253,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_polling_stations`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_polling_stations`  AS SELECT `polling_stations`.`id` AS `id`, `polling_stations`.`electroal_areas_id` AS `electroal_areas_id`, `electoral_areas`.`name` AS `electoral_name`, `polling_stations`.`code` AS `code`, `polling_stations`.`name` AS `polling_name`, `polling_stations`.`voters` AS `voters` FROM (`polling_stations` join `electoral_areas`) WHERE `polling_stations`.`electroal_areas_id` = `electoral_areas`.`id` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_polling_stations`  AS SELECT `p`.`id` AS `id`, `p`.`code` AS `code`, `p`.`name` AS `polling_name`, `p`.`voters` AS `voters`, `c`.`constituency` AS `constituency`, `c`.`id` AS `constituency_id`, `e`.`name` AS `electoral_name`, `p`.`created_at` AS `created_at` FROM ((`polling_stations` `p` join `electoral_areas` `e`) join `constituencies` `c`) WHERE `e`.`id` = `p`.`electroal_areas_id` AND `c`.`id` = `e`.`constituencies_id` ;
 
 --
 -- Indexes for dumped tables
@@ -272,7 +315,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `ballots`
 --
 ALTER TABLE `ballots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `constituencies`
