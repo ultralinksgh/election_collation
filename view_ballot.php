@@ -9,7 +9,7 @@ require "script/ultrafunctions.php";
     <div class="col-sm-12">
         <form id="formFilter" autocomplete="off" class="form-inline">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <div class="form-group mb-4 validate">
                         <label for="" class="font-weight-bold">Constituency</label>
                         <select name="constituency" id="constituency" class="form-control">
@@ -23,7 +23,7 @@ require "script/ultrafunctions.php";
                         <span class="text-danger small" role="alert"></span>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <div class="form-group mb-4 validate">
                         <label for="" class="font-weight-bold">Election Type</label>
                         <select name="type" id="type" class="form-control">
@@ -34,8 +34,12 @@ require "script/ultrafunctions.php";
                         <span class="text-danger small" role="alert"></span>
                     </div>
                 </div>
+                <div class="col-sm-2">
+                    <div class="form-group mb-4 pt-4">
+                    <button type="submit" class="btn btn-success btn_filter">FILTER</button>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn btn-success btn_filter">FILTER</button>
         </form>
     </div>
     <div class="col-sm-12">
