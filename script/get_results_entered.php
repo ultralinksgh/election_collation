@@ -3,7 +3,28 @@ session_start();
 require "ultrafunctions.php";
 $polling_station_id = validate($_POST["polling_station_id"]);  
 ?>
-<table class="table table-sm">
+<div class="row">
+<?php
+$query = select_records_on_condition("results","polling_stations_id = '$polling_station_id'");
+while ($rec = mysqli_fetch_assoc($query)) {?>
+    <div class="col-sm-8">
+        <h4 class="text-primary"><?php echo $rec['party_name']; ?></h4>
+        <hr>
+    </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <p>Presidential: <?php echo $rec['presidential_votes']; ?></p>
+        <p>Rejected Ballot: <?php echo $rec['presidential_rejected_ballot']; ?></p>
+    </div>
+    <div class="col-sm-4">
+        <p>Parliamentary: <?php echo $rec['parliament_votes']; ?></p>
+        <p>Rejected Ballot: <?php echo $rec['parliamentary_rejected_ballot']; ?></p>
+    </div>
+    <div class="col-sm-8"><hr></div>
+<?php } ?>
+    
+</div>
+<!-- <table class="table table-sm">
     <thead>
         <tr>
             <th class="font-weight-bold">#</th>
@@ -37,4 +58,4 @@ while ($rec = mysqli_fetch_assoc($query)) {
             <th class="font-weight-bold text-center">PARLIAMENTARY</th>
         </tr>
     </tfoot>
-</table>
+</table> -->

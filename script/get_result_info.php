@@ -29,19 +29,33 @@ $polling_station_code = validate($_POST["polling_station_code"]);
         <form id="formPresident" autocomplete="off">
             <input type="hidden" name="_token" value="<?php echo $_SESSION['_token']; ?>" readonly>
             <input type="hidden" name="polling_id" value="<?php echo $polling_id; ?>" readonly />
-            <?php while ($rec = mysqli_fetch_assoc($queries1)) { ?>
+            <?php while ($rec = mysqli_fetch_assoc($queries1)) { 
+            $p_name = $rec['name'];
+            $query = select_records_on_condition("results", "polling_stations_id='$polling_id' AND party_name='$p_name'");
+            $row = mysqli_fetch_assoc($query);
+            ?>
+
             <div class="col-sm-12 p-1 g-1">
                 <div class="row">
                     <div class="col-sm-2">
                         <p class="mt-2"><?php echo $rec['name']; ?></p>
                     </div>
                     <div class="col-sm-5">
-                        <input type="text" name="votes[<?php echo $rec['name']; ?>]" class="form-control"
+                        <input type="text" name="votes[<?php echo $rec['name']; ?>]" value="<?php echo ($row['presidential_votes'])? $row['presidential_votes']:0; ?>" class="form-control"
                             onkeypress="return isNumber(event);" />
                     </div>
                 </div>
             </div>
             <?php } ?>
+            <div class="row mt-4">
+                <div class="col-sm-2">
+                    <p class="mt-2">Rejcted Ballot</p>
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" name="rejected" class="form-control" onkeypress="return isNumber(event);" />
+                </div>
+            </div>
+            
             <button type="submit" class="btn btn-primary offset-3 mt-1 mb-3 btn_pres_save">Save Results</button>
         </form>
     </div>
@@ -58,12 +72,20 @@ $polling_station_code = validate($_POST["polling_station_code"]);
                         <p class="mt-2"><?php echo $rec['name']; ?></p>
                     </div>
                     <div class="col-sm-5">
-                        <input type="text" name="votes[<?php echo $rec['name']; ?>]]" class="form-control"
+                        <input type="text" name="votes[<?php echo $rec['name']; ?>]" value="<?php echo ($row['parliament_votes'])? $row['parliament_votes']:0; ?>" class="form-control"
                             onkeypress="return isNumber(event);" />
                     </div>
                 </div>
             </div>
             <?php } ?>
+            <div class="row mt-4">
+                <div class="col-sm-2">
+                    <p class="mt-2">Rejcted Ballot</p>
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" name="rejected" class="form-control" onkeypress="return isNumber(event);" />
+                </div>
+            </div>
             <button class="btn btn-secondary offset-3 mt-1 mb-3 btn_par_save">Save Results</button>
         </form>
     </div>
