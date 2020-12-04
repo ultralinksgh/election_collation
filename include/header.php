@@ -56,7 +56,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="new_result.php">Add Result</a></li>
-                            <li><a class="dropdown-item" href="load_results.php">Load Results</a></li>
+                            <li><a class="dropdown-item" href="load_results.php">View Results</a></li>
                         </ul>
                     </li>
                 </ul>
