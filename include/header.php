@@ -44,8 +44,14 @@
                             <li><a class="dropdown-item" href="view_ballot.php">Load Ballots</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold text-warning" href="#">Results</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle align-items-center font-weight-bold text-warning" href="#" id="navbarDropdownMenuLink"
+                            role="button" data-toggle="dropdown" aria-expanded="false">Results
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="new_result.php">Add Result</a></li>
+                            <li><a class="dropdown-item" href="load_results.php">Load Results</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <ul class="navbar-nav mr-5">
